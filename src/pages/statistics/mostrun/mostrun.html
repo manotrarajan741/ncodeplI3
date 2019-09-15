@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Highest Runs</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding >
+    
+  <div *ngIf="notfound == 0 ">
+             <ion-row class="header_div scoreboardheader">
+               <ion-col col-5 class=" pl_5 p_2">NAME</ion-col>
+               <ion-col col-1 class="p_2 text_center">M</ion-col>
+               <ion-col col-1 class="p_2 text_center">I</ion-col>
+               <ion-col col-1 class="p_2 text_center">R</ion-col>
+               <ion-col col-2 class="p_2 text_center">AVG</ion-col>
+               <ion-col col-2 class="p_2 text_center">SR</ion-col>
+             </ion-row>
+             <ion-row class="bg_fff mb_2" *ngFor="let item of mostruns">
+               <ion-col col-5 class="pl_5 p_2">
+                 <span class="font13 app_fontcolor" (click)="godetail(item.batsman_id)">{{item.name}}</span><br/>
+                 <span class="team_statics STATmost ">T&nbsp;:&nbsp;{{item.team_name}}</span>
+               </ion-col>
+               <ion-col col-1 class="font12 p_2 text_center">{{item.m}}</ion-col>
+               <ion-col col-1 class="font12 p_2 text_center">{{item.i}}</ion-col>
+               <ion-col col-1 class="font12 p_2 text_center">{{item.total}}</ion-col>
+               <ion-col col-2 class="font12 p_2 text_center">{{item.avg}}</ion-col>
+               <ion-col col-2 class="font12 p_2 text_center">{{item.sr}}</ion-col>
+             </ion-row>
+     </div> 
+    <div *ngIf="notfound == 1 ">
+    <div class="pt_15 font20 text_center">Not Found Data!</div>
+    </div>        
+             <!--<ion-row class="bg_fff mb_3 ">
+               <ion-col col-5 class="pl_5 p_2">
+                 <span class="font13 pyr_color">Mukesh Kevalchandji Burad</span><br/>
+                 <span class="team_statics STATmost ">T&nbsp;:&nbsp;R.S.P.L HEROS</span>
+               </ion-col>
+               <ion-col col-1 class="font13 p_2">6</ion-col>
+               <ion-col col-1 class="font13 p_2">6</ion-col>
+               <ion-col col-1 class="font13 p_2">227</ion-col>
+               <ion-col col-2 class="font13 p_2">35.17</ion-col>
+               <ion-col col-2 class="font13 p_2">168.80</ion-col>
+             </ion-row>
+             <ion-row class="bg_fff mb_3">
+               <ion-col col-5 class="pl_5 p_2">
+                 <span class="font13 pyr_color">Mukesh Kevalchandji Burad</span><br/>
+                 <span class="team_statics STATmost ">T&nbsp;:&nbsp;R.S.P.L HEROS</span>
+               </ion-col>
+               <ion-col col-1 class="font13 p_2">6</ion-col>
+               <ion-col col-1 class="font13 p_2">6</ion-col>
+               <ion-col col-1 class="font13 p_2">227</ion-col>
+               <ion-col col-2 class="font13 p_2">35.17</ion-col>
+               <ion-col col-2 class="font13 p_2">168.80</ion-col>
+             </ion-row>-->
+</ion-content>

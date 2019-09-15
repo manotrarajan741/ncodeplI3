@@ -1,0 +1,21 @@
+
+<ion-header>
+<ion-navbar>
+   <ion-title>Gallery Detail</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content no-padding class="bgcolor">
+  <ion-slides  [initialSlide]=index zoom = "true">
+    <ion-slide *ngFor="let imageSrc of photos;let i = index;">
+      <div id="preview_{{i}}" class="swiper-zoom-container">
+      <div class="mainframe width100 height100">
+          <img id="imageid" [src]="imageSrc.src" imageViewer>
+          </div>
+        </div>   
+       <!-- <button *ngIf="showSaveBtn" ion-button (click)="generateBase64_encode(i)" class="savebtn">Save Image</button> -->
+      </ion-slide>
+    </ion-slides>
+    
+</ion-content>

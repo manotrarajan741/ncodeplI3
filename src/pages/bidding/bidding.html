@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Bidding</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<div class="mt_57 bg_image h_183 bg_222 pt_5 bidding_bg" >
+    <div class="main_div">
+     <div *ngIf="notfound == 0 ">
+      <div class="text_center w100p mb_3">
+          <ion-avatar item-start class="br_50p border666">
+          <img  src="{{livebidding.player_image}}" onError="src = 'assets/image/avatar/avatar.jpg'" class="br_50p mt_3">
+          </ion-avatar>
+      </div>  
+     <div class="live-news"><div class="live_btn"><i class="red-round"></i>LIVE</div></div>
+    <div class="mb_5">   
+      <div class="main_name text_center lh_18 color_fff" (click)="godetail(livebidding.player_id)">{{livebidding.name}} ({{livebidding.regi_id}}) </div>
+      <p class="lh_18 text_center font12 color_fff">Team &nbsp;: {{livebidding.team_name}} </p>
+      <p class="text_center font12 lh_18 color_fff"><span class=" ">Bid : {{livebidding.biding_amount}} </span>&nbsp;<span class=" ">Mobile : <a href="tel:{{livebidding.resmobile}}" class="color_fff">{{livebidding.resmobile}}</a></span></p>
+    </div>
+    </div>
+    <p class="font20  text_center mtb_60 color_fff" *ngIf="notfound == 1 ">{{msg}}</p>
+      <div class="w100p text_center lh_30 h_30 color_fff scoreboardheader font_w500 pos_rel">
+         <p class="">LIST OF PLAYERS</p>
+          <div class="ref_btn color_666" (click)="refresh_bid()">
+           <span>Refresh</span>
+          </div>
+      </div>
+     </div> 
+</div>
+
+<ion-content padding  class="top_240">
+   <ion-list>
+      
+       <div *ngIf="notfound1 == 0 ">
+        <ion-item class="bottomline" *ngFor="let item of allbidding">
+          <ion-avatar item-start>
+          <img  src="{{item.player_image}}" onError="src = 'assets/image/avatar/avatar.jpg'">
+          </ion-avatar>
+           <div>
+            <div (click)="godetail(item.player_id)">
+              <h2 class="fullname_text">{{item.name}} ({{item.regi_id}})</h2>
+              <p class="lh_22">Team &nbsp;: {{item.team_name}}</p>
+            </div>  
+              <p><span class="lh_22">Bid : {{item.biding_amount}} </span>&nbsp;<span class="lh_22">Mobile : <a href="tel:{{item.resmobile}}" >{{item.resmobile}}</a></span></p>
+             
+          </div>
+          <button ion-button clear item-end style="background-color: #FFF !important;" (click)="godetail(item.player_id)"> <ion-icon name="ios-arrow-forward-outline"></ion-icon></button>
+       </ion-item>
+       </div>
+        <p class="font20 text_center mtb_60" *ngIf="notfound1 == 1 ">{{allbiddingmsg}}</p>
+       
+       <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="moreDataCanBeLoaded()">
+                        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+     
+       
+      
+   </ion-list> 
+</ion-content>

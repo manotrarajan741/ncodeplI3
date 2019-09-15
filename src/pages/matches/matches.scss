@@ -1,0 +1,45 @@
+page-matches  {
+.scroll-content {padding: 0px !important;}
+.wicketdetail{color: #c0bfc1;border-left: 1px solid black;border-right: 1px solid black;}
+.morebtn{color:#8a8686}
+.mycard{background-color: #e9e8e7;}
+.win{color:#fff}
+.morecolm{text-align: right;}
+.team_a img{height: 50px;width: 50px;border-radius: 5px; margin:0 auto;}
+.team_a_name{white-space: nowrap; margin-top:0px;text-overflow: ellipsis; overflow: hidden;}
+.team_b img{height: 50px;width: 50px;border-radius: 5px;position: relative;margin:0 auto;}
+.playercard{overflow: unset; margin-top: 5px;margin-bottom: 5px;}
+.bg_00{background-color:black;}
+.color_00{color:black !important;}
+.tc{text-align: center;}
+.tl{text-align:left;}
+.tr{text-align:right;}
+.f11{font-size: 11px !important;}
+.f12{font-size: 12px !important;}
+.f13{font-size: 13px !important;}
+.f08{font-size:0.8em !important;}
+.border_00{border: 1px solid black;}
+.padding5{padding: 5px;}
+.fbold{font-weight: bold !important;}
+.pb_0{padding-bottom:0px !important;}
+.pl_0{padding-left:0px !important;}
+.pr_0{padding-right:0px !important;}
+.card-md p {margin: 0 0 0px;}
+
+.pt_15{padding-top:15px;}
+.font20{font-size:20px;}
+@media screen and (max-device-width : 326px){
+    .over1{font-size:10px !important;}
+	.f11_res{font-size:11px;}
+	.f10_res{font-size:9px !important;}
+}
+@media screen and (max-device-width : 360px){
+   .f10_res{font-size:12px !important;}
+}
+
+.refresher-pulling-icon, .refresher-refreshing-icon {color: #fff;}
+.refresher-pulling-text, .refresher-refreshing-text {color: #fff;}
+.refresher-refreshing .spinner-bubbles circle, .refresher-refreshing .spinner-circles circle, .refresher-refreshing .spinner-dots circle {fill: #fff;}
+.spinner-md-crescent circle {stroke: #fff;}
+
+}

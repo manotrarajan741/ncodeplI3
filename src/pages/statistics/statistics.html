@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Statistics</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding >
+    
+     <ion-item class="bottomline" >
+          <ion-avatar item-start>
+          <img  src="assets/image/statistics/most-scores.gif">
+          </ion-avatar>
+           <div (click)="gomostruns()">
+              <h2 class="fullname_text">Highest Runs</h2>
+              <p class="lh_20 color_000 owner_name" *ngIf="mostruns_name">{{mostruns_name}}&nbsp;&nbsp;({{mostruns_team_name}})</p>
+              <p class="lh_20 color_000" *ngIf="mostruns_total">Runs   :  {{mostruns_total}}</p>
+          </div>
+          <button ion-button clear item-end style="background-color: #FFF !important;" (click)="gomostruns()"> <ion-icon name="ios-arrow-forward-outline"></ion-icon></button>
+       </ion-item>
+       
+         <ion-item class="bottomline" >
+          <ion-avatar item-start>
+          <img  src="assets/image/statistics/most_wicket.gif">
+          </ion-avatar>
+           <div (click)="gomostwickets()">
+              <h2 class="fullname_text">Highest Wickets</h2>
+              <p class="lh_20 color_000 owner_name" *ngIf="mostwickets_name">{{mostwickets_name}}&nbsp;&nbsp;({{mostwickets_team_name}})</p>
+              <p class="lh_20 color_000" *ngIf="mostwickets_wicket_player">Wickets   :  {{mostwickets_wicket_player}}</p>
+          </div>
+          <button ion-button clear item-end style="background-color: #FFF !important;" (click)="gomostwickets()"> <ion-icon name="ios-arrow-forward-outline"></ion-icon></button>
+       </ion-item>
+       
+         <ion-item class="bottomline" >
+          <ion-avatar item-start>
+          <img  src="assets/image/statistics/50s.gif">
+          </ion-avatar>
+           <div (click)="gomostfiftiess()">
+              <h2 class="fullname_text">Highest Fifties</h2>
+              <p class="lh_20 color_000 owner_name" *ngIf="mostfifties_name">{{mostfifties_name}}&nbsp;&nbsp;({{mostfifties_team_name}})</p>
+              <p class="lh_20 color_000" *ngIf="mostfifties_fifties">Fifties   :  {{mostfifties_fifties}}</p>
+          </div>
+          <button ion-button clear item-end style="background-color: #FFF !important;" (click)="gomostfiftiess()"> <ion-icon name="ios-arrow-forward-outline"></ion-icon></button>
+       </ion-item>
+       
+         <ion-item class="bottomline" >
+          <ion-avatar item-start>
+          <img  src="assets/image/statistics/100s.gif">
+          </ion-avatar>
+           <div (click)="gomosthundreds()">
+              <h2 class="fullname_text">Highest Hundreds</h2>
+              <p class="lh_20 color_000 owner_name" *ngIf="mosthundreds_name">{{mosthundreds_name}}&nbsp;&nbsp;({{mosthundreds_team_name}})</p>
+              <p class="lh_20 color_000" *ngIf="mosthundreds_hundreds">Hundred   :  {{mosthundreds_hundreds}}</p>
+          </div>
+          <button ion-button clear item-end style="background-color: #FFF !important;" (click)="gomosthundreds()"> <ion-icon name="ios-arrow-forward-outline"></ion-icon></button>
+       </ion-item>
+       
+         <ion-item class="bottomline" >
+          <ion-avatar item-start>
+          <img  src="assets/image/statistics/4s.gif">
+          </ion-avatar>
+           <div (click)="gomostfour()">
+              <h2 class="fullname_text">Highest Fours</h2>
+              <p class="lh_20 color_000 owner_name" *ngIf="mostfours_name">{{mostfours_name}}&nbsp;&nbsp;({{mostfours_team_name}})</p>
+              <p class="lh_20 color_000" *ngIf="mostfours_total">Fours   :  {{mostfours_total}}</p>
+          </div>
+          <button ion-button clear item-end style="background-color: #FFF !important;" (click)="gomostfour()" > <ion-icon name="ios-arrow-forward-outline"></ion-icon></button>
+       </ion-item>
+       
+         <ion-item class="bottomline" >
+          <ion-avatar item-start>
+          <img  src="assets/image/statistics/6s.gif">
+          </ion-avatar>
+           <div (click)="gomostsixes()">
+              <h2 class="fullname_text">Highest Sixes</h2>
+              <p class="lh_20 color_000 owner_name" *ngIf="mostsixes_name">{{mostsixes_name}}&nbsp;&nbsp;({{mostsixes_team_name}})</p>
+              <p class="lh_20 color_000" *ngIf="mostsixes_total">Sixes   : {{mostsixes_total}}</p>
+          </div>
+          <button ion-button clear item-end style="background-color: #FFF !important;" (click)="gomostsixes()"> <ion-icon name="ios-arrow-forward-outline"></ion-icon></button>
+       </ion-item>
+       
+         <ion-item class="bottomline" >
+          <ion-avatar item-start>
+          <img  src="assets/image/statistics/individual_most_scores.gif">
+          </ion-avatar>
+           <div (click)="gomostindscore()">
+              <h2 class="fullname_text">Highest Score</h2>
+              <p class="lh_20 color_000 owner_name" *ngIf="mostindscore_name">{{mostindscore_name}}&nbsp;&nbsp;({{mostindscore_team_name}})</p>
+              <p class="lh_20 color_000" *ngIf="mostindscore_total">Run   :  {{mostindscore_total}}</p>
+          </div>
+          <button ion-button clear item-end style="background-color: #FFF !important;" (click)="gomostindscore()"> <ion-icon name="ios-arrow-forward-outline"></ion-icon></button>
+       </ion-item>
+       
+         <ion-item class="bottomline" >
+          <ion-avatar item-start>
+          <img  src="assets/image/statistics/most_bowling.gif">
+          </ion-avatar>
+           <div (click)="gomostbolling()">
+              <h2 class="fullname_text">Best Bowling</h2>
+              <p class="lh_20 color_000 owner_name" *ngIf="mostobfigures_name">{{mostobfigures_name}}&nbsp;&nbsp;({{mostobfigures_team_name}})</p>
+              <p class="lh_20 color_000" *ngIf="mostobfigures_player_wicket">Wicket   :  {{mostobfigures_player_wicket}}</p>
+          </div>
+          <button ion-button clear item-end style="background-color: #FFF !important;" (click)="gomostbolling()"> <ion-icon name="ios-arrow-forward-outline"></ion-icon></button>
+       </ion-item>
+       
+</ion-content>

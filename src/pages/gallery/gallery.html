@@ -1,0 +1,38 @@
+﻿<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle *ngIf="!showslider">
+      <ion-icon name="menu"></ion-icon>
+    </button>		
+     <div *ngIf="showslider" style="height: 100%;display: inline-flex;font-size: 25px;color: white;">
+      <div style="flex:1">	
+        <ion-icon ios="ios-arrow-back" md="md-arrow-back" (click)="gotoGallary()"></ion-icon>
+      </div>
+    </div> 
+    
+    <ion-title>Gallery</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding class="footerspace">
+
+  <ion-slides class="fullslide" *ngIf="showslider == true" [initialSlide]=image_path zoom = "true">
+    <ion-slide *ngFor="let imageSrc of result;let i = index;">
+      <div id="preview_{{i}}" class="swiper-zoom-container">
+        <img src="{{imageSrc.src}}" class="thumb-img" imageViewer>
+      </div>
+    </ion-slide>
+  </ion-slides> 
+
+  <ion-grid no-padding *ngIf="showslider == false">
+    <ion-row no-margin no-padding>
+      <ion-col col-4 col-sm-3 col-md-6 col-lg-4 col-xl-3 no-margin padding5 *ngFor="let imageSrc of result;let i = index;">
+        <ion-card no-margin background-size>
+          <img src="{{imageSrc.src}}" (click)="openImage(i)" />
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer text-center>
+
+</ion-footer>

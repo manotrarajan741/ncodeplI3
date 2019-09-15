@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Highest Sixes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding >
+   
+  
+  <div *ngIf="notfound == 0 ">
+             <ion-row class="header_div scoreboardheader">
+               <ion-col col-6 class=" pl_5 p_2">NAME</ion-col>
+               <ion-col col-2 class="p_2 text_center">M</ion-col>
+               <ion-col col-2 class="p_2 text_center">I</ion-col>
+               <ion-col col-2 class="p_2 text_center">6s</ion-col>
+             </ion-row>
+             <ion-row class="bg_fff mb_2" *ngFor="let item of mostsixes">
+               <ion-col col-6 class="pl_5 p_2">
+                 <span class="font13 app_fontcolor" (click)="godetail(item.batsman_id)">{{item.name}}</span><br/>
+                 <span class="team_statics STATmost ">T&nbsp;:&nbsp;{{item.team_name}}</span>
+               </ion-col>
+               <ion-col col-2 class="font12 p_2 text_center">{{item.m}}</ion-col>
+               <ion-col col-2 class="font12 p_2 text_center">{{item.i}}</ion-col>
+               <ion-col col-2 class="font12 p_2 text_center">{{item.total}}</ion-col>
+               
+             </ion-row>
+     </div> 
+    <div *ngIf="notfound == 1 ">
+    <div class="pt_15 font20 text_center">Not Found Data!</div>
+    </div> 
+</ion-content>

@@ -1,0 +1,24 @@
+page-sponsor  {
+	.scroll-content {padding: 0px !important;}
+	.list-md .item-block .item-inner {border-bottom: 0px solid #dedede;border-top: 0px solid #dedede;}
+    .item-md .item-button {padding: 0px 0;height: 35px;font-size: 35px;}
+	.button-clear-md {color: #ccc !important;}
+	.label-md {display: flex;margin:5px 5px 5px 0;}
+	ion-label {white-space: inherit!important;}
+	
+	.bottomline{ border-bottom: 2px solid #dedede; }
+	.pt_10{padding-top:10px;}
+	.br_50p{border-radius:50%}
+	.lh_20{line-height: 20px;}
+	.company_text{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;font-weight: 500;font-size: 16px;width: 230px;}
+	.w100{width:100%}
+	.fullname_text{display: -webkit-box;-webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;text-overflow: ellipsis;}
+	.sponsor_div{line-height: 30px;color: #fff;font-weight: 600; font-size: 16px;}
+	.float_l{float:left}
+	.pl_16{padding-left: 16px;}
+	.sponsor_img{width: 75px;height: 75px;}
+	.sponsor_img1{height: 75px;}
+	.w75{width:75%;}
+	.w25{width:25%;}
+	.text_center{ text-align: center;}
+}

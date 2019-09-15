@@ -1,0 +1,16 @@
+
+
+<ion-content padding class="homebg">
+<div class="aplby aplby_sponser">{{title}}</div>
+
+ <div class="sponser_div"  align="center">
+     <img src="{{sponsorurl}}" onError="src = 'assets/image/not-found.jpg'" id="spImage" [ngStyle]="{'max-height': sponsorimageheight}" style="width: 100%;" (click)="gosponsorwebsite(this.sponsorwebsite)">
+ </div>
+ 
+  <div class="social-login" >
+          <div class="gobtn" (click)="godashboard()">Go</div>
+          <div class="copy_text" >© Copyright 2019 
+            <a class="com_a_tag" href="" onclick="window.open('http://www.vthinksolution.com/', '_system');">www.vthinksolution.com</a>
+          </div>
+ </div>
+</ion-content>

@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Selfie</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="openCamera()">
+		<ion-icon ios="ios-camera" md="md-camera"></ion-icon>
+      </button>
+      <button ion-button icon-only color="royal" (click)="openGallery()">
+        <ion-icon ios="ios-image" md="md-image">
+          <input type="file" class="file_chooser" id="file_chooser" (change)="showImagePreview($event)" accept="image/*" />
+        </ion-icon>
+      </button>
+      <button ion-button (click)="share()" class="font20">
+      <ion-icon ios="ios-share" md="md-share"></ion-icon> 
+    </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+    <div class="maindiv" [ngStyle]="{'max-height': '' + widthpx + 'px','height': '' + widthpx + 'px'}"><!--[ngStyle]="{'height': '' + heightpx + 'px'}"-->
+    	<!-- maindiv save image start -->
+        <div id="preview" class="width100"  [ngStyle]="{'max-height': '' + widthpx + 'px'}">
+            <div class="mainframe width100 height100">
+                <img [src]="imagepath" class="width100 height100" />
+            </div>
+            <div class="width100 height100">
+                <img [src]="framepath" class="width100 height100" id="blah"  />
+            </div>
+        </div>
+        <!-- maindiv save image end -->
+    </div>
+<!--<img [src]="base64DataImage"/>-->
+</ion-content>
+
+<ion-footer text-center>
+	<button ion-button (click)="generateBase64_encode()" class="width48 app_color">Save Image</button>
+    <button ion-button (click)="toggleRightMenu()" class="width48 app_color">Select Frames </button>
+</ion-footer>

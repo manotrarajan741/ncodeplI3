@@ -1,0 +1,224 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Live Score</ion-title>
+    <ion-buttons end *ngFor="let gamescore of result">
+      <!-- <button ion-button icon-only color="royal" (click)="livetv()" *ngIf="gamescore.livestream == true">
+        <ion-icon ios="ios-desktop" md="md-desktop"></ion-icon>
+      </button> -->
+      <button ion-button icon-only style="color:#FF0000;" color="royal" (click)="goyoutube()" *ngIf="gamescore.livestream == true">
+        <ion-icon ios="logo-youtube" md="logo-youtube"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="refreshservice()">
+        <ion-icon ios="ios-refresh" md="md-refresh"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="has-header">
+  <span *ngIf="previousball=='w' && watch == 1"><img src="assets/image/out.gif" class="cheersimage" /></span>
+  <span *ngIf="previousball=='4' && watch == 1"><img src="assets/image/four.gif" class="cheersimage" /></span>
+  <span *ngIf="previousball=='6' && watch == 1"><img src="assets/image/six.gif" class="cheersimage"></span>
+  <ion-refresher (ionRefresh)="doRefresh($event)"> 
+    <ion-refresher-content pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <!-- <div class="fb-video" data-href="https://www.facebook.com/navkar.jain.1069/videos/362189981233078/" data-width="500" data-show-text="false"></div> -->
+    <iframe width="100%" [src]="livefullurl" style="height:230px;" *ngIf="showtv == 1"></iframe>
+  
+  <div class="liveheight" *ngIf='live == 0'>
+    <div class="liveheight1">
+      {{msg}} 
+    </div>
+  </div>
+  <!-- profile-bg2.jpg -->
+  <div class="hero slide-up" style="background-image: url('assets/image/livescore/bg5.jpg');background-size:100%; height:155px;" *ngIf="showtv == 1">
+    <h5 style="font-weight:200;padding:5px;letter-spacing: 0.1em;background-color: transparent; text-transform:uppercase;font-weight: 600;">{{curseries}}</h5>
+    <div class="content" *ngFor="let gamescore of result">
+      <div class="team_name" (click)="godetailfullscore(gamescore.match_id)">
+        <p>{{gamescore.team1}}</p>
+      </div>
+      <div class="team_name" (click)="godetailfullscore(gamescore.match_id)">
+        <p>{{gamescore.team2}}</p>
+      </div>
+      <div class="left-avatar" style="cursor:pointer; height:48px;">
+        <div class="score"><span id="team1run">{{gamescore.team1_score}}</span>-<span id="team1wicket">{{gamescore.team1_wicket}}</span></div>
+        <div class="over"><span id="team1over">{{gamescore.team1_over}}</span>&nbsp;ov</div>
+      </div>
+      <div class="avatar" style="cursor:pointer;"><img src="{{gamescore.team1_image}}" class="cuteamimg" onError="src = 'assets/image/icon.png'" /></div>
+      <div class="mid-avatar" style="cursor:pointer;"></div>
+      <div class="avatar" style="cursor:pointer;"><img src="{{gamescore.team2_image}}" class="cuteamimg" onError="src = 'assets/image/icon.png'" /></div>
+      <div class="right-avatar" style="cursor:pointer; height:48px;">
+        <div class="score"><span id="team2run">{{gamescore.team2_score}}</span>-<span id="team2wicket">{{gamescore.team2_wicket}}</span></div>
+        <div class="over"><span id="team2over">{{gamescore.team2_over}}</span>&nbsp;ov</div>
+      </div>
+      <h6 style="font-weight:200;letter-spacing: 0.1em;font-size: 0.78em;color: rgb(255, 255, 255);">{{gamescore.firstmsg}}</h6>
+      <h3>
+        <div class="live-news"><a class="light light-left"><i class="red-round"></i>LIVE</a><a class="light light-right">{{gamescore.secondmsg}}</a></div>
+      </h3>
+      <h4 style="margin:3px 0px 0px;height: 32px;">
+        <div *ngIf="gameloader == true">
+          <div style="width: 95px;margin: auto;display: flex;margin-top: -5px;">
+            <ion-spinner class="spinner-stable"></ion-spinner>
+            <div style="font-size: 0.6em;letter-spacing: 0.1em;margin-top: 8px;padding-left: 5px;">Loading...</div>
+          </div>
+        </div>
+        <div class="btnrefresh"> <i class="icon ion-loop"></i>
+          <div style="font-size: 0.6em;letter-spacing: 0.1em;margin-top: 2px;padding-left: 5px;" (click)="getlivescore()">Refresh</div>
+        </div>
+      </h4>
+    </div>
+  </div>
+  <div class="hero slide-up" style="background-image: url('assets/image/livescore/bg5.jpg');background-size:100%;" *ngIf="showtv == 0">
+    <h5 style="font-weight:200;padding:5px;letter-spacing: 0.1em;background-color: transparent; text-transform:uppercase;font-weight: 600;">{{curseries}}</h5>
+    <div class="content" *ngFor="let gamescore of result">
+      <div class="team_name" (click)="godetailfullscore(gamescore.match_id)">
+        <p>{{gamescore.team1}}</p>
+      </div>
+      <div class="team_name" (click)="godetailfullscore(gamescore.match_id)">
+        <p>{{gamescore.team2}}</p>
+      </div>
+      <div class="left-avatar" style="cursor:pointer;">
+        <div class="score"><span id="team1run">{{gamescore.team1_score}}</span>-<span id="team1wicket">{{gamescore.team1_wicket}}</span></div>
+        <div class="over"><span id="team1over">{{gamescore.team1_over}}</span>&nbsp;ov</div>
+      </div>
+      <div class="avatar" style="cursor:pointer;"><img src="{{gamescore.team1_image}}" class="cuteamimg" onError="src = 'assets/image/icon.png'" /></div>
+      <div class="mid-avatar" style="cursor:pointer;"></div>
+      <div class="avatar" style="cursor:pointer;"><img src="{{gamescore.team2_image}}" class="cuteamimg" onError="src = 'assets/image/icon.png'" /></div>
+      <div class="right-avatar" style="cursor:pointer;">
+        <div class="score"><span id="team2run">{{gamescore.team2_score}}</span>-<span id="team2wicket">{{gamescore.team2_wicket}}</span></div>
+        <div class="over"><span id="team2over">{{gamescore.team2_over}}</span>&nbsp;ov</div>
+      </div>
+      <h6 style="font-weight:200;letter-spacing: 0.1em;font-size: 0.78em;color: rgb(255, 255, 255);">{{gamescore.firstmsg}}</h6>
+      <h3>
+        <div class="live-news"><a class="light light-left"><i class="red-round"></i>LIVE</a><a class="light light-right">{{gamescore.secondmsg}}</a></div>
+      </h3>
+      <h4 style="margin:3px 0px 0px;height: 32px;">
+        <div *ngIf="gameloader == true">
+          <div style="width: 95px;margin: auto;display: flex;margin-top: -5px;">
+            <ion-spinner class="spinner-stable"></ion-spinner>
+            <div style="font-size: 0.6em;letter-spacing: 0.1em;margin-top: 8px;padding-left: 5px;">Loading...</div>
+          </div>
+        </div>
+        <div class="btnrefresh"> <i class="icon ion-loop"></i>
+          <div style="font-size: 0.6em;letter-spacing: 0.1em;margin-top: 2px;padding-left: 5px;" (click)="getlivescore()">Refresh</div>
+        </div>
+      </h4>
+    </div>
+  </div>
+  <div class="list  animate-fade-slide-in-right">
+    <div *ngIf="showtv == 1">
+        <h5 style="margin-top: -14px; text-align: center; margin-bottom: 5px;">
+          <span *ngFor="let ball of gameoverball[0]; trackBy: index;">
+            <span class="ball wicket" *ngIf="ball.key=='w'">{{ball.val}}</span>
+            <span class="ball noball" *ngIf="ball.key=='nb'">{{ball.val}}</span>
+            <span class="ball wide" *ngIf="ball.key=='wd'">{{ball.val}}</span>
+            <span class="ball wide" *ngIf="ball.key=='lb'">{{ball.val}}</span>
+            <span class="ball wide" *ngIf="ball.key=='by'">{{ball.val}}</span>
+            <span class="ball zero" *ngIf="ball.key=='0'">{{ball.val}}</span>
+            <span class="ball one" *ngIf="ball.key=='1'">{{ball.val}}</span>
+            <span class="ball two" *ngIf="ball.key=='2'">{{ball.val}}</span>
+            <span class="ball three" *ngIf="ball.key=='3'">{{ball.val}}</span>
+            <span class="ball four" *ngIf="ball.key=='4'">{{ball.val}}</span>
+            <span class="ball four" *ngIf="ball.key=='5'">{{ball.val}}</span>
+            <span class="ball six" *ngIf="ball.key=='6'">{{ball.val}}</span>
+          </span>
+        </h5>
+    </div>
+    <div class="inwhich" *ngIf="showtv == 0"></div>
+    <div class="runingplayerbox" *ngIf="showtv == 0">
+      <div class="runingplayerbox1">
+        <div class="left-player-info" *ngFor="let gamescore of result">
+          <div class="batsmanname ellipsis">
+            <div id="batsman1 left" style="height: 19px;line-height:19px; width: 94%;overflow: hidden;cursor: pointer;"
+              (click)="godetail(gamescore.bastman1_id)">{{gamescore.bastman1_name}}</div>
+          </div>
+          <div class="batsscore left"><span id="player1ball">{{gamescore.bastman1_run}}</span>(<span id="player1run"
+              style="font-weight:100;color: rgb(255, 255, 255);">{{gamescore.bastman1_ball}}</span>)</div>
+        </div>
+        <div class="player" *ngFor="let gamescore of result"><img src="{{gamescore.bastman1_img}}" onError="src = 'assets/image/avatar/avatar.jpg' "
+            class="cuplayerimg" /></div>
+        <div class="mid-score"></div>
+        <div class="player" *ngFor="let gamescore of result"><img src="{{gamescore.bastman2_img}}" onError="src = 'assets/image/avatar/avatar.jpg' "
+            class="cuplayerimg" /></div>
+        <div class="right-player-info" *ngFor="let gamescore of result">
+          <div class="batsmanname ellipsis">
+            <div id="batsman2 right" style="padding-left: 6px;height: 19px; line-height:19px; width: 98%;overflow: hidden;cursor: pointer;"
+              (click)="godetail(gamescore.bastman2_id)">{{gamescore.bastman2_name}}</div>
+          </div>
+          <div class="batsscore right"><span id="player2ball">{{gamescore.bastman2_run}}</span>(<span id="player2run"
+              style="font-weight:100;color: rgb(255, 255, 255);">{{gamescore.bastman2_ball}}</span>)</div>
+        </div>
+        <p style="margin: 0px 0px 0px;"></p>
+        <p class="overline"></p>
+        <h5 style="margin-top: 5px;">
+          <span *ngFor="let ball of gameoverball[0]; trackBy: index;">
+            <span class="ball wicket" *ngIf="ball.key=='w'">{{ball.val}}</span>
+            <span class="ball noball" *ngIf="ball.key=='nb'">{{ball.val}}</span>
+            <span class="ball wide" *ngIf="ball.key=='wd'">{{ball.val}}</span>
+            <span class="ball wide" *ngIf="ball.key=='lb'">{{ball.val}}</span>
+            <span class="ball wide" *ngIf="ball.key=='by'">{{ball.val}}</span>
+            <span class="ball zero" *ngIf="ball.key=='0'">{{ball.val}}</span>
+            <span class="ball one" *ngIf="ball.key=='1'">{{ball.val}}</span>
+            <span class="ball two" *ngIf="ball.key=='2'">{{ball.val}}</span>
+            <span class="ball three" *ngIf="ball.key=='3'">{{ball.val}}</span>
+            <span class="ball four" *ngIf="ball.key=='4'">{{ball.val}}</span>
+            <span class="ball four" *ngIf="ball.key=='5'">{{ball.val}}</span>
+            <span class="ball six" *ngIf="ball.key=='6'">{{ball.val}}</span>
+          </span>
+        </h5>
+        <p class="overline"></p>
+        <h4 class="commentline" *ngFor="let gamescore of result">{{gamescore.thirdmsg}}</h4>
+      </div>
+    </div>
+    <div class="list list-table" style="margin:0px 0px 0px 0px;">
+      <div class="row header" *ngFor="let gamescore of result">
+        <div class="col-60">Batsman&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="btnfullscoreboard" (click)="godetailfullscore(gamescore.match_id)">Full
+            Scoreboard</span></div>
+        <div class="col-10">R</div>
+        <div class="col-10">B</div>
+        <div class="col-10">4's</div>
+        <div class="col-10">6's</div>
+      </div>
+      <div class="row" *ngFor="let gamescore of result">
+        <div class="col-60"><span style="cursor:pointer;" (click)="godetail(gamescore.bastman1_id)">{{gamescore.bastman1_name}}</span>&nbsp;&nbsp;<img
+            src="assets/image/livescore/star-1.gif" *ngIf="gamescore.strike == gamescore.bastman1_id" style="height: 8px;width:8px;"></div>
+        <div class="col-10">{{gamescore.bastman1_run}}</div>
+        <div class="col-10">{{gamescore.bastman1_ball}}</div>
+        <div class="col-10">{{gamescore.bastman1_4s}}</div>
+        <div class="col-10">{{gamescore.bastman1_6s}}</div>
+      </div>
+      <div class="row" *ngFor="let gamescore of result">
+        <div class="col-60"><span style="cursor:pointer;" (click)="godetail(gamescore.bastman2_id)">{{gamescore.bastman2_name}}</span>&nbsp;&nbsp;<img
+            src="assets/image/livescore/star-1.gif" *ngIf="gamescore.strike == gamescore.bastman2_id" style="height: 8px;width:8px;"></div>
+        <div class="col-10">{{gamescore.bastman2_run}}</div>
+        <div class="col-10">{{gamescore.bastman2_ball}}</div>
+        <div class="col-10">{{gamescore.bastman2_4s}}</div>
+        <div class="col-10">{{gamescore.bastman2_6s}}</div>
+      </div>
+    </div>
+    <div class="list list-table" style="margin:0px 0px 0px 0px;">
+      <div class="row header">
+        <div class="col-60">Bowler</div>
+        <div class="col-10">O</div>
+        <div class="col-10">R</div>
+        <div class="col-10">M</div>
+        <div class="col-10">W</div>
+      </div>
+      <div class="row" *ngFor="let gamescore of result">
+        <div class="col-60"><span style="cursor:pointer;" (click)="godetail(gamescore.bowler_id)">{{gamescore.bowler_name}}</span></div>
+        <div class="col-10">{{gamescore.bowler_ball}}</div>
+        <div class="col-10">{{gamescore.bowler_run}}</div>
+        <div class="col-10">{{gamescore.bowler_match}}</div>
+        <div class="col-10">{{gamescore.bowler_wicket}}</div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<div class="sponsor app_color">
+  <marquee direction="left">{{main_sponsor}}</marquee>
+</div>

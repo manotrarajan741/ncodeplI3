@@ -1,0 +1,41 @@
+
+
+<ion-content padding class="dashboardbg">
+       
+  <div class="main_div">
+        <div class="hero no-header flat">
+            <div class="content">
+                <div class="app-icon"></div>
+               <div style="position: relative;"> 
+                <div> <h4 style="color:#fff;line-height: 44px;">NAVKAR PREMIER LEAGUE</h4></div>
+                <div style="position: absolute;width: 100%; top: 0;right: 2%">
+                <ion-buttons end>
+                        <button ion-button icon-only color="royal" (click)="opensite()"  style="background-color: transparent !important;">
+                            <ion-icon ios="ios-refresh" md="md-refresh" style="color: #ed3732;" ></ion-icon>
+                        </button>
+                </ion-buttons>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+        <div class="mt_15">
+          <div class="series_btn dashboard_btnbg" (click)="golivescroe(item.series,item.title)" *ngFor="let item of series_info">
+            <div class="w_18p overflowdot">{{item.title}}</div>:
+            <div class="w_38p text_left pl_5 overflowdot"> {{item.cupsponsor}}</div>:
+            <div class="w_41p text_left pl_5 overflowdot"> {{item.winner}}</div>
+         </div>
+        <div *ngIf="tryagain == 1"> <div class="trybtn dashboard_btnbg " (click)="opensite()" >TRY AGAIN</div></div>
+            <!--<div class="series_btn" (click)="golivescroe()"><div class="w_20p">NPL 5 </div>:<div class="w_40p text_left pl_5"> MK Balar Cup </div></div>
+            <div class="series_btn"><div class="w_20p">NPL 4 </div>:<div class="w_40p text_left pl_5"> C4U Cup </div>:<div class="w_40p text_left pl_5"> Banthia Bahubali</div></div>
+            <div class="series_btn"><div class="w_20p">NPL 3 </div>:<div class="w_40p text_left pl_5"> Jeerawala Cup </div>:<div class="w_40p text_left pl_5"> Banthia Bahubali</div></div>
+            <div class="series_btn"><div class="w_20p">NPL 2 </div>:<div class="w_40p text_left pl_5"> Tater Cup </div>:<div class="w_40p text_left pl_5">Kanunga </div></div>
+            <div class="series_btn"><div class="w_20p">NPL 1 </div>:<div class="w_40p text_left pl_5"> Abhinandan Cup </div>:<div class="w_40p text_left pl_5"> Kanunga</div></div>-->
+      </div>
+      
+  </div>
+       <div class=" social-login  width100 footer_app app_color">
+            <a  href="{{company_url}}" class="atag_line w_80p color_fff" ng-click="company_open()"><marquee><p class="fs_18">{{company_title}}</p></marquee></a>
+            <a href="tel:{{company_phone}}" class="atag_line w_20p" ><img src="assets/image/phone_call.png" style="width:73px;height: 40px;"></a>
+        </div>
+</ion-content>

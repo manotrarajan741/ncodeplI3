@@ -1,0 +1,52 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sponsor Detail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content elastic-header class="footerspace">
+      <div class="text_center w100p pt_30">
+          <ion-avatar item-start class="br_50p border666">
+          <img  src="{{img}}" class="br_50p mt_3" onError="src = 'assets/image/icon.png'">
+          </ion-avatar>
+      </div>  
+      
+  <div class=" h_30 ">
+    <h2 class="info_text">PERSONAL INFORMATION</h2>  
+  </div> 
+  <div class="bg_fff">
+   <div class="info_name w100p dis_flex ptb_10"><p class="w20 ">Company</p><p class="w2">:</p><p  class="w78 pr_20 "><b>{{company}}</b></p></div> 
+  </div> 
+  <div class="bg_fff">
+    <div class="info_name w100p dis_flex ptb_10"><p class="w20 ">Owner</p><p class="w2 ">:</p><p  class="w78 pr_20 "><b>{{name}}</b></p></div>  
+  </div> 
+  <div class="bg_fff">
+   <div class="info_name w100p dis_flex ptb_10"><p class="w20 ">Type</p><p class="w2 ">:</p><p class="w78 pr_20 "><b>{{sponsor_type}}</b></p></div>  
+  </div> 
+  <div class="bg_fff">
+    <div class="info_name w100p dis_flex ptb_10"><p class="w20 ">Address</p><p class="w2 ">:</p><p  class="w78 pr_20 "><b>{{address}}</b></p></div>
+  </div>
+   
+</ion-content>
+<ion-footer text-center>
+	<div class="w33">
+      <a href="#" *ngIf="website == ''"><img  src="assets/image/webicon.png" class="h_30 "></a> 
+      <a href="https:{{website}}" *ngIf="website != ''"><img  src="assets/image/webicon.png" class="h_30 "></a> 
+      
+    </div>
+    <div class="w33"> 
+      <a href="#" *ngIf="mobile == ''"> <img  src="assets/image/phone.png" class="h_30 "></a> 
+      <a href="tel:{{mobile}}" *ngIf="mobile != ''"> <img  src="assets/image/phone.png" class="h_30 "></a>
+     
+    </div>
+    <div class="w33"> 
+        <a href="#" *ngIf="email == ''"><img  src="assets/image/mail.png" class="h_30 "></a> 
+        <a href="mailto:{{email}}" *ngIf="email != ''"><img  src="assets/image/mail.png" class="h_30 "></a> 
+      
+    </div>
+</ion-footer>

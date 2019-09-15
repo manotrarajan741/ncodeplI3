@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Players List</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end>
+      <button *ngIf="!searchFlag" ion-button icon-only (click)='onSearch()'>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding >
+   
+  <ion-searchbar *ngIf="searchFlag" [(ngModel)]="myInput" (ionInput)="getItems($event)" showCancelButton="true"(ionCancel)="searchFlag=false"> 
+  </ion-searchbar>
+   <ion-list >
+   
+      <ion-item class="bottomline" *ngFor="let com of result">
+          <ion-avatar item-start>
+          <img  src="{{com.player_image}}" onError="src = 'assets/image/avatar/avatar.jpg'">
+          </ion-avatar>
+           <div>
+           <div (click)="godetail(com.player_id)">
+              <h2 class="fullname_text">{{com.name}} {{com.fathername}} {{com.surname}}</h2>
+              <p class="lh_20">Age &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{com.age}} </p>
+           </div> 
+             <p class="lh_20">Mobile :  <a href="tel:{{com.resmobile}}" >{{com.resmobile}}</a></p>
+          </div>
+          <button ion-button clear item-end style="background-color: #FFF !important;" (click)="godetail(com.player_id)"> <ion-icon name="ios-arrow-forward-outline"></ion-icon></button>
+       </ion-item>
+      
+   </ion-list>
+  
+</ion-content>

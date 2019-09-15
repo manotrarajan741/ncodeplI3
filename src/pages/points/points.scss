@@ -1,0 +1,37 @@
+page-points {
+    .bgcolor{background-color: #f0efe1;}
+    .bgrowcolor{display:inline-flex;height: 30px;}
+    .pointcolm{text-align: center;color: white;}
+    .heading1{font-size: 14px;}
+    .heading2{font-size: 14px;}
+    .item-md.item-block .item-inner{border-bottom: none;}
+    .item-ios.item-block .item-inner{border-bottom: none;}
+    .item-ios{background-color: transparent;}
+    .item-md{background-color: transparent;}
+    .group{padding:5px;text-align:center;font-weight: bold;}
+    .grouprow{padding:5px;text-align:center;font-weight: bold;}
+    .groupcolumn{background-color: #f0f0f0;}
+    .colm1{text-align: center;font-weight: bold;}
+    .colm2{text-align: center;font-size: 13px;}
+    .groupcolumn2{background-color: #ffffff;}
+    .teamname{font-size: 12px;font-weight: bold;display: inline-block;padding-left: 5px;}
+    .average{font-size: 13px;position: absolute;top: -30px;left: 10px;}
+    .points{font-size: 13px;position: absolute;top: -30px;left: 15px;}
+    .win{font-size: 13px;position: absolute;top: -20px;left: 10px;}
+    .loss{font-size: 13px;position: absolute;top: -20px;left: 16px;}
+    .flag{position: relative;left: -10px;}
+
+    .mainrow{border-bottom: 1px solid #dadada;}
+    .rootclass{display: flex;height: 100%;flex-direction: column;text-align: center;}
+    .child1{flex: 1;font-weight: bold;padding-top: 10px;font-size: 15px;}
+    .child2{flex: 1;font-size: 13px;}
+    .groupclass{flex:1;margin: auto;color: white;padding-left: 20px;}
+    .teamclass{flex:1;margin: auto;color: white;}
+    .avgclass{ display: flex;width: 100%;flex-direction: row;padding-left: 5px;font-size: 12px;padding-top: 5px;}
+    .flexclass{flex:1}
+    .flexclass2{flex:2}
+    .displayclass{display:flex;}
+    .displayblockclass{
+        display: block;
+    }
+}

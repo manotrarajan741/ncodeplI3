@@ -1,0 +1,72 @@
+page-bidding {
+	.scroll-content {padding: 0px !important;margin-top:0px !important; margin-bottom: 240px;}
+	.fixed-content{margin-top:0px !important;}
+	.list-md .item-block .item-inner {border-bottom: 0px solid #dedede;border-top: 0px solid #dedede;}
+    .item-md .item-button {padding: 0px 0;height: 35px;font-size: 35px;}
+	.button-clear-md {color: #ccc !important;}
+	
+	.bottomline{ border-bottom: 2px solid #dedede; }
+	.item-md ion-avatar { min-width: 60px;min-height: 60px;}
+	.item-md ion-avatar ion-img, .item-md ion-avatar img { width: 60px; height: 60px;}
+	
+	ion-avatar { min-width: 85px;min-height: 85px;}
+	ion-avatar img { width: 75px; height: 75px;}
+	ion-avatar img, ion-thumbnail img {display: initial;}
+	ion-avatar, ion-thumbnail { display: inline-block;line-height: 0;}
+	
+	.fullname_text{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;font-weight: 500;font-size: 16px;width: 230px;}
+	.main_name{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;font-weight: bold;font-size: 16px;}
+	.ref_btn{position: absolute;top: 3px;right: 10px; background: #fff; width: 70px; border-radius: 6%; height: 24px;line-height: 25px;}
+	.pos_rel{position:relative;}
+
+    .top_240{top:240px;}
+	.mt_57{margin-top:57px;}
+     
+    .bg_222{background-color:rgba(222,222,222,0.5)}
+	 
+	.border666{border: 2px solid #fff;}
+	.br_50p{border-radius:50%;} 
+    .w100p{width:100%}
+	.w80p{width:80%}
+	.w20p{width:20%}
+	.text_center{text-align:center;}
+	.mt_3{margin-top:3px;}
+	.mb_3{margin-bottom:3px;}
+	.mb_5{margin-bottom:5px;}
+    .mtb_60{margin-top:60px;margin-bottom:60px;}
+	
+	.pt_5{padding-top:5px;}
+    .pt_15{padding-top:15px;}
+	 
+	.lh_30{line-height: 30px;}
+	.lh_22{line-height: 22px;}
+	.lh_18{line-height: 18px;} 
+    
+	.h_183{height:183px;} 
+    .h_30{height: 30px;}
+   
+    .color_666{color: #666;}
+	.color_fff{color: #fff;}
+	
+	.font12{font-size:12px;} 
+   	.font20{font-size:20px;}
+	
+	.font_w500{font-weight:500}
+	.bg_35{background-color: rgba(35, 126, 193, 0.7);}
+	
+	.text_center{text-align:center;}
+
+   .main_div{background-color: rgba(0,0,0,0.5);position: absolute;width: 100%;height: 100%;}
+   .live-news {width: 100%; top: 5%;left: 8%; color: #fff;position:absolute;font-size:10px;}
+   .red-round {width: 8px; background-color: #F00; display: inline-block; height: 8px;border-radius: 50%; margin-right: 6px;}
+   .live_btn{width: 55px;text-align: center; border: 1px solid;border-radius: 5px; height: 20px;line-height: 20px;}
+   .bidding_bg{background-image: url(../assets/image/menu_bg.jpg); background-size: 100% 100%;}
+   
+}
+
+
+
+
+
+
+

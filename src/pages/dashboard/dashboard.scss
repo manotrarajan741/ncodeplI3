@@ -1,0 +1,99 @@
+page-dashboard {
+	
+ .scroll-content {padding: 0px !important;}	
+ p{margin:0px;}
+
+.w_100p{width:100%;}
+.w_80p{width:80%;}
+.w_41p{width:41%;}
+.w_40p{width:40%;}
+
+.w_38p{width:38%;}
+.w_20p{width:20%;}
+.w_18p{width:18%;}
+
+
+
+.mt_15{margin-top:15px;}
+
+.pl_5{padding-left:5px;}
+.color_fff{color:#fff;}
+.fs_18{font-size:18px;}
+
+.dashboardbg{background-image:url(../assets/image/dashboardbg1.png) !important;background-size: 100% 100%; background-repeat: no-repeat;}
+.main_div{background-color: rgba(0,0,0,0.7);position: absolute;width: 100%;height: 100%;}
+.text_left{text-align:left;}
+.text_center{text-align:center;}
+
+
+
+
+.hero.no-header {
+    height: 225px;
+}
+
+.hero {
+    background-size: cover;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+    color: #fff;
+    height: 200px;
+    position: relative;
+    text-align: center;
+    -webkit-transition: all 1s cubic-bezier(.55,0,.1,1);
+    transition: all 1s cubic-bezier(.55,0,.1,1);
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    width: 100%;
+}
+
+.hero>.content {
+    bottom: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+}
+.content {
+    margin: 0px;
+    padding: 0px;
+}
+.app-icon {
+    background-color: #fff;
+    background: url(../assets/image/icon.png) center;
+    background-size: cover;
+    border-radius: 20px;
+    height: 125px;
+    margin: 0 auto;
+    width: 125px;
+    margin-bottom: 15px;
+}
+.social-login {
+    position: fixed;
+    bottom: 0;
+}
+.footer_app{height: 40px;display: flex;line-height: 40px;text-align: center;width:100%;color:#fff;}
+
+
+.series_btn{ height: 45px;color: #fff;margin-left: 5%; margin-right: 5%; border-radius: 6px;margin-bottom: 10px; text-align: center; line-height: 45px;font-size: 15px;display: inline-flex;width: 90%; box-shadow: 0px 5px 10px rgba(0,0,0,0.6);}
+
+@media screen and (max-device-width : 360px){
+   .series_btn{font-size: 14px;}
+}
+@media screen and (max-device-width : 320px){
+   .series_btn{font-size: 13px;}
+}
+
+.trybtn{height: 45px;
+    color: #fff;
+   margin:auto;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    text-align: center;
+    line-height: 45px;
+    font-size: 16px;
+    width: 30%;
+    -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.6);
+    font-weight: bold;}
+
+}

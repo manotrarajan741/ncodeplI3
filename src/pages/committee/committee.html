@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Committee</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding >
+    
+   <ion-list>
+       <ion-item class="bottomline" *ngFor="let com of result">
+          <ion-avatar item-start>
+          <img  src="{{com.img}}" onError="src = 'assets/image/avatar/avatar.jpg'">
+          </ion-avatar>
+           <div>
+            <div  (click)="godetail(com.com_mem_id)">
+              <h2 class="fullname_text">{{com.name}} {{com.fathername}} {{com.surname}}</h2>
+              <p class="lh_20">Age &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{com.age}} </p>
+            </div> 
+             <p class="lh_20">Mobile :  <a href="tel:{{com.mobile}}" >{{com.mobile}}</a></p>
+          </div>
+          <button ion-button clear item-end style="background-color: #FFF !important;" (click)="godetail(com.com_mem_id)"> <ion-icon name="ios-arrow-forward-outline"></ion-icon></button>
+       </ion-item>
+        <!--<ion-item class="bottomline" >
+          <ion-avatar item-start>
+          <img  src="assets/image/avatar/0.jpg">
+          </ion-avatar>
+           <div >
+              <h2 class="fullname_text">Amit  Jagdishkumarji  Shrishrimal Shrishrimal</h2>
+              <p class="lh_20">Age &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 20 </p>
+              <p class="lh_20">Mobile : 9978895555 </p>
+          </div>
+          <button ion-button clear item-end style="background-color: #FFF !important;" > <ion-icon name="ios-arrow-forward-outline"></ion-icon></button>
+       </ion-item>
+       -->
+      
+   </ion-list> 
+</ion-content>

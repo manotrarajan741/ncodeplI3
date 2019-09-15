@@ -1,0 +1,36 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Committee Detail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content elastic-header class="footerspace">
+      <div class="text_center w100p pt_30">
+          <ion-avatar item-start class="br_50p border666">
+          <img  src="{{img}}" class="br_50p mt_3" onError="src = 'assets/image/avatar/avatar.jpg'">
+          </ion-avatar>
+      </div>  
+      
+  <div class=" h_30 ">
+    <h2 class="info_text">PERSONAL INFORMATION</h2>  
+  </div> 
+  
+  <div class="bg_fff h_30 ">
+    <h2 class="info_text1">Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:  <b>{{name}} {{fathername}} {{surname}}</b></h2>  
+  </div> 
+  <div class="bg_fff h_30 ">
+    <h2 class="info_text1">Dob&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:  <b>{{dob}}</b></h2>  
+  </div> 
+  <div class="bg_fff h_30 ">
+    <h2 class="info_text1">Age&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:  <b>{{age}}</b></h2>  
+  </div> 
+  <div class="bg_fff h_30 ">
+    <h2 class="info_text1">Mobile&nbsp;&nbsp;&nbsp;&nbsp;:  <b><a href="tel:{{mobile}}" >{{mobile}}</a></b></h2>  
+  </div>    
+</ion-content>
+

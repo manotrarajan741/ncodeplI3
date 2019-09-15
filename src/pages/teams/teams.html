@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Teams</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding >
+   
+ <ion-item class="bottomline" *ngFor="let com of result">
+          <ion-avatar item-start>
+          <img  src="{{com.team_image}}" onError="src = 'assets/image/icon.png'"> 
+          </ion-avatar>
+           <div (click)="godetail(com.id)">
+              <h2 class="fullname_text">{{com.team_name}}</h2>
+              <p class="lh_20 owner_text">Owner&nbsp;: {{com.name}} </p>
+          </div>
+          <button ion-button clear item-end style="background-color: #FFF !important;" (click)="godetail(com.id)"> <ion-icon name="ios-arrow-forward-outline"></ion-icon></button>
+       </ion-item>
+  
+</ion-content>

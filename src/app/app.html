@@ -1,0 +1,78 @@
+<ion-menu [content]="content"  side="left" id="leftside">
+    <ion-header  header-background-image [ngStyle]="{'background-image': 'url(assets/image/menu_bg.jpg)'}" >
+      <div class="dis_flex w100p main_div_menu">
+        <ion-thumbnail class="dis_line w30p float_left"> <img src="assets/image/icon.png"> </ion-thumbnail>
+         <div class="w70p float_left">
+           <h2 item-title text-center class="mt35" style="color:#fff !important; font-weight:bold !important;font-size:16px !important;">NAVKAR PREMIER LEAGUE</h2>
+         </div>
+        </div> 
+       
+    </ion-header>
+  <ion-content>
+    <ion-list>
+     <button menuClose ion-item  id="{{colorlive}}" (click)="live()"> 
+      <ion-icon icon-small item-left name="stats" > </ion-icon>
+      Live
+      </button>
+     <button menuClose ion-item  id="{{colorregistration}}" (click)="registration()"> 
+      <ion-icon icon-small item-left name="ios-create" > </ion-icon>
+      Registration
+      </button>
+      <button menuClose ion-item *ngFor="let p of pages" id="{{p.color}}" (click)="openPage(p)">
+      <ion-icon icon-small item-left [name]="p.icon"> </ion-icon>
+        {{p.title}}
+      </button>
+      <button menuClose ion-item  id="{{colordevelopedby}}" (click)="developedby()"> 
+      <ion-icon icon-small item-left name="cog" > </ion-icon>
+       Developed By <img src="assets/image/new.gif" class="menu_new" />
+      </button>
+      <button menuClose ion-item  id="{{colorstrawpoll}}" (click)="strawpoll()"> 
+      <ion-icon icon-small item-left name="podium" > </ion-icon>
+      Straw Poll  <img src="assets/image/new.gif" class="menu_new" /> <!--<span class="addmember-button">New</span>-->
+      </button>
+      <button menuClose ion-item  id="{{colorevents}}" (click)="events1()"> 
+      <ion-icon icon-small item-left name="clipboard" > </ion-icon>
+      Events  <img src="assets/image/new.gif" class="menu_new" />
+      </button>
+      <button menuClose ion-item  id="{{colorothergames}}" (click)="othergames()"> 
+      <ion-icon icon-small item-left name="list-box" > </ion-icon>
+      Other Games <img src="assets/image/new.gif" class="menu_new" />
+      </button>
+      <button menuClose ion-item  id="{{coloraboutus}}" (click)="aboutus()"> 
+      <ion-icon icon-small item-left name="information-circle" > </ion-icon>
+      About Us 
+      </button>
+      <button menuClose ion-item  id="{{colorprivacy}}" (click)="privacy()"> 
+      <ion-icon icon-small item-left name="lock" > </ion-icon>
+       Privacy Policy
+      </button>
+      <button menuClose ion-item  id="{{colorhome}}" (click)="godashboard()">
+      <ion-icon icon-small item-left name="home" ></ion-icon>
+       NPL Home
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-menu [content]="content" side="right" id="rightside" >
+    <ion-header>
+    <ion-toolbar >
+      <ion-title class="text_center">Select Frame</ion-title>
+    </ion-toolbar>
+  </ion-header>
+   <ion-content>
+  	<ion-grid>
+      <ion-row>
+        <ion-col col-12 menuClose *ngFor="let p of framelist" (click)="selectFrame(p.framename)">
+          <img [src]="p.framename">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+
+</ion-menu>
+
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

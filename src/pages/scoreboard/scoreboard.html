@@ -1,0 +1,199 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Score Board</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding >
+    
+  <div>
+  <!--TOSS DETAIL START-->
+        <div class="tossdetail app_fontcolor">
+                <p>{{scorecard.toss_won}}</p>  
+                <p *ngIf="scorecard.mom!='no'">Mom: {{scorecard.mom}}</p>
+                <p *ngIf="scorecard.result!='no'">{{scorecard.result}}</p>      
+        </div>
+    <!--TOSS DETAIL END-->
+    <!--TOTAL SCORE START inning1-->
+    <ion-row class="header_div_score">
+               <ion-col col-12 class=" pl_5 pimg_2"><img src="{{scorecard.team1_image}}" class="team_image"  onError="src = 'assets/image/icon.png'"/> 
+               <p>{{scorecard.team1}} ({{scorecard.team1_score}}/{{scorecard.team1_wicket}})</p></ion-col>
+    </ion-row>
+    <!--TOTAL SCORE END-->
+    <!--BATSMAN DETAIL START-->
+             <ion-row class="header_div scoreboardheader">
+               <ion-col col-6 class=" pl_5 p_2">BATSMAN</ion-col>
+               <ion-col col-1 class="p_2 text_center">R</ion-col>
+               <ion-col col-1 class="p_2 text_center">B</ion-col>
+               <ion-col col-1 class="p_2 text_center">4s</ion-col>
+               <ion-col col-1 class="p_2 text_center">6s</ion-col>
+               <ion-col col-2 class="p_2 text_center">SR</ion-col>
+             </ion-row>
+             <div *ngIf="scorecard.inning1_batsman" >
+             <ion-row  class="bg_fff mb_2" *ngFor="let item of scorecard.inning1_batsman">
+               <ion-col col-6 class="pl_5 p_2">
+                 <span class="font13 app_fontcolor" (click)="godetail(item.player_id)">{{item.name}}</span><br/>
+                 <p class="team_statics STATmost " *ngIf="item.out == 'out'" [innerHTML]="item.wicket_by"></p>
+                 <p class="team_statics STATmost color_green" *ngIf="item.out != 'out'" >Not Out</p>
+               </ion-col>
+               <ion-col col-1 class="font12 p_2 text_center">{{item.total_run}}</ion-col>
+               <ion-col col-1 class="font12 p_2 text_center">{{item.ball}}</ion-col>
+               <ion-col col-1 class="font12 p_2 text_center">{{item.r4}}</ion-col>
+               <ion-col col-1 class="font12 p_2 text_center">{{item.r6}}</ion-col>
+               <ion-col col-2 class="font12 p_2 text_center">{{item.strike_rate}}</ion-col>
+             </ion-row>
+            </div>
+            
+             <ion-row class="bg_fff mb_2">
+               <ion-col col-6 class="pl_5 p_2">
+                 <span class="font13 app_fontcolor">Extra</span>
+               </ion-col>
+               <ion-col col-6 class="font12 p_2">{{I1.total_extra}} (lb {{I1.lb}}, wide {{I1.wide}}, nb {{I1.nb}}, bye {{I1.b}})</ion-col>
+             </ion-row>
+             <ion-row class="bg_fff mb_2">
+               <ion-col col-6 class="pl_5 p_2">
+                 <span class="font13 app_fontcolor">Total</span>
+               </ion-col>
+               <ion-col col-6 class="font12 p_2">{{scorecard.team1_score}} ({{scorecard.team1_wicket}} wkt, {{scorecard.team1_over}} Overs)</ion-col>
+             </ion-row>
+      <!--BATSMAN DETAIL END-->
+      <!--BOWLER DETAIL START-->
+          <ion-row class="header_div scoreboardheader">
+           <ion-col col-6 class=" pl_5 p_2">BOWLERS</ion-col>
+           <ion-col col-1 class="p_2 text_center">O</ion-col>
+           <ion-col col-1 class="p_2 text_center">M</ion-col>
+           <ion-col col-1 class="p_2 text_center">R</ion-col>
+           <ion-col col-1 class="p_2 text_center">W</ion-col>
+           <ion-col col-2 class="p_2 text_center">ER</ion-col>
+         </ion-row>
+          <div *ngIf="scorecard.inning1_bowler_data" >
+          <ion-row class="bg_fff mb_2" *ngFor="let item of scorecard.inning1_bowler_data">
+           <ion-col col-6 class="pl_5 p_2">
+             <span class="font13 app_fontcolor" (click)="godetail(item.bowler_id)">{{item.name}}</span>
+           </ion-col>
+           <ion-col col-1 class="font12 p_2 text_center">{{item.over}}</ion-col>
+           <ion-col col-1 class="font12 p_2 text_center">{{item.maiden}}</ion-col>
+           <ion-col col-1 class="font12 p_2 text_center">{{item.total_run}}</ion-col>
+           <ion-col col-1 class="font12 p_2 text_center">{{item.wicket}}</ion-col>
+           <ion-col col-2 class="font12 p_2 text_center">{{item.econ}}</ion-col>
+         </ion-row>
+        </div> 
+        
+      <!--BOWLER DETAIL END-->
+      <!--FALL OF WICKET START-->
+         <ion-row class="header_div_score">
+           <p class="text_center w100">FALL OF WICKETS</p>
+         </ion-row>
+          <ion-row class="header_div scoreboardheader">
+           <ion-col col-8 class=" pl_5 p_2">BATSMAN</ion-col> 
+           <ion-col col-2 class="p_2 text_center">OVER</ion-col>
+           <ion-col col-2 class="p_2 text_center">SCORE</ion-col>
+         </ion-row>
+         <div *ngIf="scorecard.inning1_fow" > 
+          <ion-row class="bg_fff mb_2" *ngFor="let item of scorecard.inning1_fow;let i = index;">
+           <ion-col col-8 class="pl_5 p_2">
+             <span class="font13 app_fontcolor" (click)="godetail(item.player_id)">{{item.batsman}}</span>
+           </ion-col>
+           <ion-col col-2 class="font12 p_2 text_center">{{item.over}}</ion-col>
+           <ion-col col-2 class="font12 p_2 text_center">{{item.run}}/{{i+1}}</ion-col>
+         </ion-row>
+        </div> 
+     <!--FALL OF WICKET END-->
+     
+     
+      <!--TOTAL SCORE START inning2-->
+    <ion-row class="header_div_score">
+               <ion-col col-12 class=" pl_5 pimg_2"><img src="{{scorecard.team2_image}}" class="team_image" onError="src = 'assets/image/icon.png'"/> 
+               <p>{{scorecard.team2}} ({{scorecard.team2_score}}/{{scorecard.team2_wicket}})</p></ion-col>
+    </ion-row>
+    <!--TOTAL SCORE END-->
+    <!--BATSMAN DETAIL START-->
+             <ion-row class="header_div scoreboardheader">
+               <ion-col col-6 class=" pl_5 p_2">BATSMAN</ion-col>
+               <ion-col col-1 class="p_2 text_center">R</ion-col>
+               <ion-col col-1 class="p_2 text_center">B</ion-col>
+               <ion-col col-1 class="p_2 text_center">4s</ion-col>
+               <ion-col col-1 class="p_2 text_center">6s</ion-col>
+               <ion-col col-2 class="p_2 text_center">SR</ion-col>
+             </ion-row>
+             <div *ngIf="scorecard.inning2_batsman" >
+             <ion-row  class="bg_fff mb_2" *ngFor="let item of scorecard.inning2_batsman">
+               <ion-col col-6 class="pl_5 p_2">
+                 <span class="font13 app_fontcolor" (click)="godetail(item.player_id)">{{item.name}}</span><br/>
+                 <p class="team_statics STATmost " *ngIf="item.out == 'out'" [innerHTML]="item.wicket_by"></p>
+                 <p class="team_statics STATmost color_green" *ngIf="item.out != 'out'" >Not Out</p>
+               </ion-col>
+               <ion-col col-1 class="font12 p_2 text_center">{{item.total_run}}</ion-col>
+               <ion-col col-1 class="font12 p_2 text_center">{{item.ball}}</ion-col>
+               <ion-col col-1 class="font12 p_2 text_center">{{item.r4}}</ion-col>
+               <ion-col col-1 class="font12 p_2 text_center">{{item.r6}}</ion-col>
+               <ion-col col-2 class="font12 p_2 text_center">{{item.strike_rate}}</ion-col>
+             </ion-row>
+            </div>
+            
+             <ion-row class="bg_fff mb_2">
+               <ion-col col-6 class="pl_5 p_2">
+                 <span class="font13 app_fontcolor">Extra</span>
+               </ion-col>
+               <ion-col col-6 class="font12 p_2">{{I2.total_extra}} (lb {{I2.lb}}, wide {{I2.wide}}, nb {{I2.nb}}, bye {{I2.b}})</ion-col>
+             </ion-row>
+             <ion-row class="bg_fff mb_2">
+               <ion-col col-6 class="pl_5 p_2">
+                 <span class="font13 app_fontcolor">Total</span>
+               </ion-col>
+               <ion-col col-6 class="font12 p_2">{{scorecard.team2_score}} ({{scorecard.team2_wicket}} wkt, {{scorecard.team2_over}} Overs)</ion-col>
+             </ion-row>
+      <!--BATSMAN DETAIL END-->
+      <!--BOWLER DETAIL START-->
+          <ion-row class="header_div scoreboardheader">
+           <ion-col col-6 class=" pl_5 p_2">BOWLERS</ion-col>
+           <ion-col col-1 class="p_2 text_center">O</ion-col>
+           <ion-col col-1 class="p_2 text_center">M</ion-col>
+           <ion-col col-1 class="p_2 text_center">R</ion-col>
+           <ion-col col-1 class="p_2 text_center">W</ion-col>
+           <ion-col col-2 class="p_2 text_center">ER</ion-col>
+         </ion-row>
+          <div *ngIf="scorecard.inning2_bowler_data" >
+          <ion-row class="bg_fff mb_2" *ngFor="let item of scorecard.inning2_bowler_data">
+           <ion-col col-6 class="pl_5 p_2">
+             <span class="font13 app_fontcolor" (click)="godetail(item.bowler_id)">{{item.name}}</span>
+           </ion-col>
+           <ion-col col-1 class="font12 p_2 text_center">{{item.over}}</ion-col>
+           <ion-col col-1 class="font12 p_2 text_center">{{item.maiden}}</ion-col>
+           <ion-col col-1 class="font12 p_2 text_center">{{item.total_run}}</ion-col>
+           <ion-col col-1 class="font12 p_2 text_center">{{item.wicket}}</ion-col>
+           <ion-col col-2 class="font12 p_2 text_center">{{item.econ}}</ion-col>
+         </ion-row>
+        </div> 
+        
+      <!--BOWLER DETAIL END-->
+      <!--FALL OF WICKET START-->
+         <ion-row class="header_div_score">
+           <p class="text_center w100">FALL OF WICKETS</p>
+         </ion-row>
+          <ion-row class="header_div scoreboardheader">
+           <ion-col col-8 class=" pl_5 p_2">BATSMAN</ion-col> 
+           <ion-col col-2 class="p_2 text_center">OVER</ion-col>
+           <ion-col col-2 class="p_2 text_center">SCORE</ion-col>
+         </ion-row>
+         <div *ngIf="scorecard.inning2_fow" > 
+          <ion-row class="bg_fff mb_2" *ngFor="let item of scorecard.inning2_fow;let i = index;">
+           <ion-col col-8 class="pl_5 p_2">
+             <span class="font13 app_fontcolor" (click)="godetail(item.player_id)">{{item.batsman}}</span>
+           </ion-col>
+           <ion-col col-2 class="font12 p_2 text_center">{{item.over}}</ion-col>
+           <ion-col col-2 class="font12 p_2 text_center">{{item.run}}/{{i+1}}</ion-col>
+         </ion-row>
+        </div> 
+     <!--FALL OF WICKET END-->
+     
+     
+     </div> 
+    <div *ngIf="notfound == 1 ">
+    <div class="pt_15 font20 text_center">Not Found Data!</div>
+    </div>        
+</ion-content>

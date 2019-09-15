@@ -1,0 +1,158 @@
+a, u {
+    text-decoration: none;
+}
+[main-menu]  .label-md {margin: 12px 3px 12px 0;}
+.overflowdot{height: 45px;overflow: hidden;text-overflow: ellipsis; white-space: nowrap;}
+
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {color: #fff;background-color: transparent;}
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {color: #fff;background-color: transparent;}
+.toolbar-title-md {color: #fff;}
+
+/*************************************App Colors*********************************/
+.toolbar-background-md {border-color: #b2b2b2;background: #1d3266;}
+.app_color{background: #1d3266;}
+.dashboard_btnbg{background-color:rgba(29, 50, 102, 0.9);}
+.app_fontcolor{color:#1d3266;}
+.scoreboardheader{background-color: rgba(29, 50, 102, 0.7);} 
+.button-md:hover:not(.disable-hover) {background-color: #1d3266;}
+.BlueColor{border-bottom: 4px solid #1d3266 !important;opacity: 1 !important;}
+.segment-md-primary .segment-button.activated, .segment-md-primary .segment-button.segment-activated {border-color: #1d3266;color: #1d3266;opacity: 1;}
+.segment-md-primary .segment-button {color: #1d3266;}
+/*************************************App Colors*********************************/
+.toolbar-md {min-height: 57px;}
+
+.w40{width:40%;}
+.w60p{width:60%;}
+.w30p{width:30%;}
+.w70p{width:70%;}
+.w100p{width:100%;}
+
+
+.mt40{margin-top:40px;}
+.mt35{margin-top:35px;}
+.mt15{margin-top:15px;}
+.mt10{margin-top:10px;}
+.f14{font-size:14px !important;}
+.f16{font-size:16px !important;}
+.color_fff{color:#fff !important;}
+.font_bold{font-weight:bold !important;}
+.dis_flex{display:flex;}
+
+.h25p{height:25%;}
+
+#danger{background-color:rgba(222, 222, 222, 0.7)}
+.menu-inner {width: 270px;}
+ion-menu[side=right] > .menu-inner {
+    right: 0;
+    left: auto;
+    width: 200px;
+}
+
+.text_center{text-align:center;}
+.list-md .item-block .item-inner {
+    border-bottom: 0.5px solid #dedede;
+    border-top: 0.5px solid #dedede;
+}
+.list-md {
+    margin: 0px;
+}
+
+.develop_menu_div{position: absolute; left:10px; bottom:10px; color:#fff;font-size:13px;}
+.main_div_menu{background-color: rgba(0,0,0,0.4); height:90px;}
+
+ i {
+    color: #ef5424;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #ef5424;
+} 
+
+[header-background-image] {
+    height: 90px;
+    background-size: cover;
+    background-position: center;
+   
+  
+    img {
+      padding-top: 40px;
+      margin: 0 auto;
+      display: block;
+      position: relative;
+      z-index: 9;
+      max-width: 60px;
+    }
+  
+    [item-title] {
+      color: theme-colors('textColors', 'accent-first') !important;
+      position: relative;
+      z-index: 9;
+    }
+  }
+  
+  [main-menu] {
+    button {
+      padding-left: 30px;
+    }
+  
+  .item-inner {
+      margin-left: 0 !important;
+    }
+    [icon-small] {
+      margin-top: 10px !important;
+	   margin-bottom: 3px !important;
+    }
+  }
+  
+  
+  [submenu] {
+    ion-label {
+      padding-left: 30px !important;
+    }
+  }
+  
+
+
+.item-md ion-icon[item-left] + .item-inner, .item-md ion-icon[item-left] + .item-input, .item-md ion-icon[item-start] + .item-inner, .item-md ion-icon[item-start] + .item-input {
+    margin-left: 0px;
+}
+.item > ion-icon, .item-inner > ion-icon {
+    min-height: 1.8rem;
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+
+ion-avatar, ion-thumbnail, [images-filter]{filter:none !important;}
+
+[item-title] {
+    color: #455b65 !important;
+    font-size: 14px !important;
+    letter-spacing: 1px;
+    text-overflow: ellipsis; 
+    overflow: hidden;
+}
+
+[header-background-image] img {
+    height: 70px;
+    width: 70px;
+    max-width: 100px !important;
+    margin-top: 10px !important;
+    padding-top: 0px !important;
+    border-radius: 2px;
+}
+
+p{margin:0px;}
+
+
+.addmember-button { color: #303030;font-weight: bold;z-index: 999;padding: 0px 5px; border-radius: 5px;-webkit-transition: all 0.3s ease-out; transition: all 0.3s ease-out;float: right; margin-right: 10px;}
+.addmember-button { -webkit-animation: glowing 1500ms infinite; -moz-animation: glowing 1500ms infinite; -o-animation: glowing 1500ms infinite; animation: glowing 1500ms infinite;}
+
+@keyframes glowing {
+0% { box-shadow: 0 0 -40px #FAA84E; }
+50% { box-shadow: 0 0 60px red; background-color:red; color:#fff;}
+100% { box-shadow: 0 0 -40px #FAA84E; background-color:#FAA84E;}
+}
+.menu_new{    height: 20px;
+    float: right;
+    margin-right: 15px;
+    width: 40px;}

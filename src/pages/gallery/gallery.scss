@@ -1,0 +1,12 @@
+page-gallery {
+	    [padding5]{padding:5px !important;}
+		[background-size]::before{background:none !important;}
+		ion-card {position: relative; height: 100px; width: 100% !important;}
+		ion-card img{height:100px;}
+	    .width100 { width: 100%; }
+	    .width99 { width: 99%; }
+	    .height100 { height: 100%; }
+		.toolbar-content-md{
+			display: inline-flex;padding:5px;
+				}
+}

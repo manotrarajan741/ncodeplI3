@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sponsor</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding >
+    
+<div>
+ <div *ngIf='result'>
+     <div class="w100 "  *ngFor="let item of result"> 
+       <p class="pl_16 sponsor_div scoreboardheader">{{item.sponsor_type}} </p> 
+     
+    <ion-list class="float_l w100" *ngIf='item.sponsor_info'>
+       <ion-item class="bottomline" *ngFor="let sinfo of item.sponsor_info"> 
+           <div class="pt_10 w75">
+             <div (click)="godetail(sinfo.s_id)">
+              <h2 class="company_text">{{sinfo.company}}</h2>
+              <p class="lh_20 fullname_text">{{sinfo.name}} {{sinfo.fathername}} {{sinfo.surname}}</p>
+             </div> 
+              <p class="lh_20">Mobile : <a href="tel:{{sinfo.mobile}}" > {{sinfo.mobile}}</a> </p>
+          </div>
+          <div class="sponsor_img1 w25 text_center" (click)="godetail(sinfo.s_id)">
+           <img src="{{sinfo.img}}" class="br_50p sponsor_img" onError="src = 'assets/image/icon.png'">
+          </div>
+          <button ion-button clear item-end style="background-color: #FFF !important;" (click)="godetail(sinfo.s_id)"> <ion-icon name="ios-arrow-forward-outline"></ion-icon></button> 
+       </ion-item>
+       </ion-list>
+    </div>
+  </div> 
+   </div>  
+   <!--<div>
+ <div class="w100 sponsor_div"> <p>APP  Sponsor</p></div>
+    <ion-list>
+       <ion-item class="bottomline" >
+           <div class="pt_10">
+              <h2 class="company_text">SUNANDA</h2>
+              <p class="lh_20 fullname_text">Sha. Ashokkumarji,Ratankumarji,Vishalkumarji  Hundia</p>
+              <p class="lh_20">Mobile : 8141499606 </p>
+          </div>
+          <div>
+           <img src="assets/image/avatar/0.jpg" class="br_50p">
+          </div>
+          <button ion-button clear item-end style="background-color: #FFF !important;" > <ion-icon name="ios-arrow-forward-outline"></ion-icon></button>
+       </ion-item>
+    </ion-list> 
+  </div>  
+   <div> -->
+</ion-content>

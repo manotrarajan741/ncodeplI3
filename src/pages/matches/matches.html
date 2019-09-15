@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Matches</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="bg_00" >
+    
+<div  *ngIf="notfound == 0">
+ <ion-card class="playercard " *ngFor="let item of result">
+    <ion-row class="wicketdetail f11 bg_00 border_00">
+      <ion-col col-10>
+        <p class="win f11 f10_res">{{item.result}}</p>
+      </ion-col>
+      <ion-col col-2 class="morecolm" (click)="godetail(item.match_id)">
+        <p class="morebtn f13">More</p>
+      </ion-col>
+    </ion-row>
+   <div (click)="godetail(item.match_id)"> 
+    <ion-card-header class="mycard TextCenter padding5">
+      <p class="color_00 f12">{{item.match_day}} {{item.match_date}} {{item.timeslot}}</p>
+    </ion-card-header>
+    <ion-grid class="pb_0">
+      <ion-row>
+        <ion-col col-4>
+          <ion-avatar class="team_a">
+            <img src="{{item.img1}}" onError="src = 'assets/image/icon.png'">
+          </ion-avatar>
+        </ion-col>
+        <ion-col col-4 class="tc pl_0 pr_0">
+            <p class="team_ascore fbold f11_res">{{item.total_run}}-{{item.wicket}}&nbsp;vs&nbsp;{{item.total_run2}}-{{item.wicket2}}</p>
+            <p class="over1 f12 ">({{item.over}})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;({{item.over2}})</p>
+        </ion-col>
+        <ion-col col-4> 
+          <ion-avatar class="team_b">
+            <img src="{{item.img2}}" onError="src = 'assets/image/icon.png'"> 
+          </ion-avatar>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+      		<ion-col col-6 class="pb_0"><p class="team_a_name f08 color_00 tl">{{item.team_1}}</p></ion-col>
+            <ion-col col-6 class="pb_0"><p class="team_a_name f08 color_00 tr">{{item.team_2}}</p></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>  
+  </ion-card>
+  </div>
+  <div *ngIf="notfound == 1">
+   <p class="font20 pt_15 tc win">{{matchemsg}}</p>
+  </div>
+ 
+</ion-content>
